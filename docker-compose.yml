@@ -1,0 +1,32 @@
+# Menggunakan docker compose v3.7
+version: "3.7"
+
+# mendefinisikan service
+services:
+  
+  # menamai service sebagai item-app
+  item-app:
+  # menggunakan image dari github package
+    image: item-app:v1
+  # menlakukan map port host 80 ke 8080 port container
+    ports:
+      - 80:8080
+  # container akan terus restart bila mati
+    restart: always
+  # menunggu sampai item-db hidup
+    depends_on:
+      - "item-db"
+
+  # menamai service sebagai item-db
+  item-db:
+  # menggunakan mongo v3
+    image: mongo:3
+  # mounting volume app-db ke /data/db
+    volumes:
+      - app-db:/data/db
+  # container akan terus restart bila mati
+    restart: always
+
+#Mendefinisikan volume app-db untuk di mount
+volumes:
+  app-db:
