@@ -7,7 +7,7 @@ services:
   # menamai service sebagai item-app
   item-app:
   # menggunakan image dari github package
-    image: item-app:v1
+    image: ghcr.io/harisrahmannst/item-app:v1
   # menlakukan map port host 80 ke 8080 port container
     ports:
       - 80:8080
