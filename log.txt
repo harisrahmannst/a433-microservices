@@ -1,0 +1,136 @@
+failed to get console mode for stdout: The handle is invalid.
+[1A[1B[0G[?25l[+] Running 2/0
+ - Network a433-microservices_default      Created 0.1s
+ - Volume "a433-microservices_app-db"      Created 0.0s
+ - Container a433-microservices-item-db-1  Creating 0.0s
+[?25h[1A[1A[1A[1A[0G[?25l[+] Running 2/3
+ - Network a433-microservices_default      Created 0.1s
+ - Volume "a433-microservices_app-db"      Created 0.0s
+ - Container a433-microservices-item-db-1  Creating 0.1s
+[?25h[1A[1A[1A[1A[0G[?25l[+] Running 2/3
+ - Network a433-microservices_default      Created 0.1s
+ - Volume "a433-microservices_app-db"      Created 0.0s
+ - Container a433-microservices-item-db-1  Creating 0.2s
+[?25h[1A[1A[1A[1A[0G[?25l[34m[+] Running 3/3[0m
+ - Network a433-microservices_default       Created 0.1s
+ - Volume "a433-microservices_app-db"       Created 0.0s
+ - Container a433-microservices-item-db-1   Created 0.3s
+ - Container a433-microservices-item-app-1  Creating 0.1s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Running 3/4
+ - Network a433-microservices_default       Created 0.1s
+ - Volume "a433-microservices_app-db"       Created 0.0s
+ - Container a433-microservices-item-db-1   Created 0.3s
+ - Container a433-microservices-item-app-1  Creating 0.2s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Running 3/4
+ - Network a433-microservices_default       Created 0.1s
+ - Volume "a433-microservices_app-db"       Created 0.0s
+ - Container a433-microservices-item-db-1   Created 0.3s
+ - Container a433-microservices-item-app-1  Creating 0.3s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Running 3/4
+ - Network a433-microservices_default       Created 0.1s
+ - Volume "a433-microservices_app-db"       Created 0.0s
+ - Container a433-microservices-item-db-1   Created 0.3s
+ - Container a433-microservices-item-app-1  Creating 0.4s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[34m[+] Running 4/4[0m
+ - Network a433-microservices_default       Created 0.1s
+ - Volume "a433-microservices_app-db"       Created 0.0s
+ - Container a433-microservices-item-db-1   Created 0.3s
+ - Container a433-microservices-item-app-1  Created 0.4s
+[?25hAttaching to a433-microservices-item-app-1, a433-microservices-item-db-1
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.131+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=a750a33150c9
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.131+0000 I CONTROL  [initandlisten] db version v3.6.23
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.131+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten] modules: none
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten] build environment:
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten]     distarch: x86_64
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I STORAGE  [initandlisten] 
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.132+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=982M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.804+0000 I STORAGE  [initandlisten] WiredTiger message [1669522435:804699][1:0x7f221b4eaa40], txn-recover: Set global recovery timestamp: 0
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.873+0000 I CONTROL  [initandlisten] 
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.873+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.873+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.873+0000 I CONTROL  [initandlisten] 
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.874+0000 I STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 38aec55a-d95c-4029-a2ce-7f6120082829
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.903+0000 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.6
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.904+0000 I STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: a846468b-c38c-47dd-8cd3-2505eec151d4
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.931+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.933+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.933+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.934+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.934+0000 I STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with generated UUID: d3ebf3e4-4a02-4c85-a85a-c95dccf5b5d1
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.979+0000 I INDEX    [LogicalSessionCacheRefresh] build index on: config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 }
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.979+0000 I INDEX    [LogicalSessionCacheRefresh] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+a433-microservices-item-db-1   | 2022-11-27T04:13:55.981+0000 I INDEX    [LogicalSessionCacheRefresh] build index done.  scanned 0 total records. 0 secs
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | > docker-software-delivery@1.0.0 start /app
+a433-microservices-item-app-1  | > node ./bin/www
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | NODE_ENV: production
+a433-microservices-item-db-1   | 2022-11-27T04:13:56.376+0000 I NETWORK  [listener] connection accepted from 172.21.0.3:33636 #1 (1 connection now open)
+a433-microservices-item-db-1   | 2022-11-27T04:13:56.384+0000 I NETWORK  [conn1] received client metadata from 172.21.0.3:33636 conn1: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "5.15.49-linuxkit" }, platform: "Node.js v14.21.1, LE, mongodb-core: 2.1.20" }
+a433-microservices-item-app-1  | Connected to database
+a433-microservices-item-app-1  | [0mGET / [32m200 [0m578.809 ms - 785[0m
+a433-microservices-item-app-1  | [0mGET / [32m200 [0m2.692 ms - 785[0m
+a433-microservices-item-app-1  | [0mGET /javascripts/dist/dist.min.js [32m200 [0m4.984 ms - 186999[0m
+a433-microservices-item-app-1  | [0mGET /stylesheets/style.css [32m200 [0m93.369 ms - 519[0m
+a433-microservices-item-app-1  | [0mGET /api [32m200 [0m19.223 ms - 2[0m
+a433-microservices-item-db-1   | 2022-11-27T04:14:09.237+0000 I STORAGE  [conn1] createCollection: accumulator.documents with generated UUID: 3027fd7e-f815-46a3-9f20-604596514ed6
+a433-microservices-item-app-1  | [0mPOST /api [32m201 [0m55.519 ms - 53[0m
+a433-microservices-item-app-1  | [0mPOST /api [32m201 [0m4.494 ms - 53[0m
+a433-microservices-item-app-1  | [0mPOST /api [32m201 [0m3.889 ms - 51[0m
+a433-microservices-item-app-1  | [0mPOST /api [32m201 [0m2.910 ms - 53[0m
+Gracefully stopping... (press Ctrl+C again to force)
+failed to get console mode for stdout: The handle is invalid.
+failed to get console mode for stdout: The handle is invalid.
+[1A[1B[0G[?25l[+] Running 0/0
+ - Container a433-microservices-item-app-1  Stopping 0.1s
+[?25h[1A[1A[0G[?25l[+] Running 0/1
+ - Container a433-microservices-item-app-1  Stopping 0.2s
+[?25h[1A[1A[0G[?25l[34m[+] Running 1/1[0m
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.1s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.2s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.3s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.4s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.5s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.6s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.7s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.8s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 0.9s
+[?25hfailed to get console mode for stdout: The handle is invalid.
+[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 1.0s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 1.1s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 1.2s
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ - Container a433-microservices-item-app-1  Stopped 0.2s
+ - Container a433-microservices-item-db-1   Stopping 1.3s
+[?25h
