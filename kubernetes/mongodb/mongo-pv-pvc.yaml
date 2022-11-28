@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: karsajobs-ns
+  name: mongo-data-pv
+
+spec:
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: "/data/db"
+  accessModes:
+    - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: karsajobs-ns
+  name: mongo-pvc
+
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
