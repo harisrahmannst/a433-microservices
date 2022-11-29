@@ -28,6 +28,7 @@ spec:
           image: mongo
           ports:
             - containerPort: 27017
+              name: mongo
 
           env:
             # menentukan Username yang akan digunakan mengambil dari mongo-secret
