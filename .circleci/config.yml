@@ -23,6 +23,7 @@ jobs:
   test-app:
     executor: docker
     steps:
+      - checkout
       - run:
           name: Test Docker image
           command: go test -v -short --count=1 $(go list ./...)
