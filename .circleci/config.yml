@@ -19,22 +19,14 @@ jobs:
       - run:
           name: Build Docker image
           command: docker build --tag "${IMAGE_TAG1}" .
-
-  test-app:
-    executor: docker
-    steps:
-      - checkout
-      - setup_remote_docker
-      
+          
       - run:
-          name: Test Docker image
+          name: test-app
           command: go test -v -short --count=1 $(go list ./...)
+
 
 workflows:
   version: 2
   test:
     jobs:
       - lint-dockerfile
-      - test-app:
-          requires:
-            - lint-dockerfile
