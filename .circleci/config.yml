@@ -24,7 +24,7 @@ jobs:
 
       - run:
           name: Run tests
-          command: go test -v -short --count=1 $(go list ./...)
+          command: docker exec karsajobs go test -v -short --count=1 $(go list ./...)
 
 
 workflows:
@@ -32,4 +32,6 @@ workflows:
   test:
     jobs:
       - lint-dockerfile
-      - test-app
+      - test-app:
+          requires:
+            - lint-dockerfile
