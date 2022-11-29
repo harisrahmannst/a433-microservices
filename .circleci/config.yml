@@ -19,14 +19,15 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
-      - docker/check
-      - docker/build:
-          dockerfile: Dockerfile
-          image: ghcr.io/harisrahmannst/"${IMAGE_TAG1}"
-      - docker/push:
-          registry: ghcr.io
-          image: ghcr.io/harisrahmannst/"${IMAGE_TAG1}"
+      - run:
+          name: Build Docker image
+          command: docker build --tag "${IMAGE_TAG}" .
 
+      - run:
+          name: Publish Docker image
+          command: |
+            echo "${GITHUB_PASS}" | docker login ghcr.io --username "${GITHUB_USERNAME}" --password-stdin
+            docker push "${IMAGE_TAG}"
 
 workflows:
   lint-and-build-dockerfile:
