@@ -3,16 +3,13 @@ orbs:
   docker: circleci/docker@2.1.4
 
 jobs:
-  lint-test-push:
+  lint-dockerfile:
     executor: docker/machine
     steps:
       - checkout
       - docker/dockerlint:
           dockerfile: Dockerfile
           treat-warnings-as-errors: true
-
-      - run:
-          command: go test -v -short --count=1 $(go list ./...)
 
   build-and-push:
     executor: docker/docker
@@ -32,7 +29,7 @@ jobs:
 workflows:
   lint-Test-build-Push-dockerfile:
     jobs:
-      - lint-test-push
+      - lint-dockerfile
       - build-and-push:
           requires:
-            - lint-test-push
+            - lint-dockerfile
