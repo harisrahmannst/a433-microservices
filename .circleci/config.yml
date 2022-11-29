@@ -15,16 +15,14 @@ jobs:
       - run:
           name: Run hadolint
           command: docker run --rm --interactive hadolint/hadolint < Dockerfile
-  
-  test-app:
-    docker:
-      - image: ghcr.io/harisrahmannst/karsajobs:latest
-    steps:
-      - checkout
-
+      
       - run:
-          name: Run tests
-          command: docker exec karsajobs go test -v -short --count=1 $(go list ./...)
+          name: Build Docker image
+          command: docker build --tag "${IMAGE_TAG1}" .
+          
+      - run:
+          name: test-app
+          command: docker run -it "${IMAGE_TAG1}" go test -v -short --count=1 $(go list ./...)
 
 
 workflows:
@@ -32,6 +30,3 @@ workflows:
   test:
     jobs:
       - lint-dockerfile
-      - test-app:
-          requires:
-            - lint-dockerfile
