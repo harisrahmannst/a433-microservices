@@ -1,26 +1,38 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
+version: "2.1"
+orbs:
+  docker: circleci/docker@2.1.4
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+  lint-test-push:
+    executor: docker/machine
     steps:
       - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+      - docker/dockerlint:
+          dockerfile: Dockerfile
+          treat-warnings-as-errors: true
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+      - run:
+          command: go test -v -short --count=1 $(go list ./...)
+
+  build-and-push:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Build Docker image
+          command: docker build -t "${IMAGE_TAG2}" .
+
+      - run:
+          name: Publish Docker image
+          command: |
+            echo "${GITHUB_PASS}" | docker login ghcr.io --username "${GITHUB_USERNAME}" --password-stdin
+            docker push "${IMAGE_TAG2}"
+
 workflows:
-  say-hello-workflow:
+  lint-Test-build-Push-dockerfile:
     jobs:
-      - say-hello
+      - lint-test-push
+      - build-and-push:
+          requires:
+            - lint-test-push
