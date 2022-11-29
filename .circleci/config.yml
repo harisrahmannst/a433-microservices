@@ -27,7 +27,7 @@ jobs:
             docker push "${IMAGE_TAG2}"
 
 workflows:
-  lint-Test-build-Push-dockerfile:
+  lint-build-Push-dockerfile:
     jobs:
       - lint-dockerfile
       - build-and-push:
