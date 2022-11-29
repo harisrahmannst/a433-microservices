@@ -21,16 +21,16 @@ jobs:
       - checkout
       - run:
           name: Build Docker image
-          command: docker build --tag "${IMAGE_TAG}" .
+          command: docker build -t "${IMAGE_TAG1}" .
 
       - run:
           name: Publish Docker image
           command: |
             echo "${GITHUB_PASS}" | docker login ghcr.io --username "${GITHUB_USERNAME}" --password-stdin
-            docker push "${IMAGE_TAG}"
+            docker push "${IMAGE_TAG1}"
 
 workflows:
-  lint-and-build-dockerfile:
+  lint-Test-build-Push-dockerfile:
     jobs:
       - lint-test-push
       - build-and-push:
