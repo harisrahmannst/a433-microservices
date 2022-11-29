@@ -1,32 +1,19 @@
-version: 2.1
-
-executors:
-  docker:
-    docker:
-      - image: docker:stable
-
+version: "2.1"
+orbs:
+  docker: circleci/docker@2.1.4
 jobs:
-  lint-dockerfile:
-    executor: docker
+  build:
+    executor: docker/machine
     steps:
       - checkout
-      - setup_remote_docker
-
+      - docker/dockerlint:
+          dockerfile: Dockerfile
+          treat-warnings-as-errors: true
       - run:
-          name: Run hadolint
-          command: docker run --rm --interactive hadolint/hadolint < Dockerfile
-      
+          command: go test -v -short --count=1 $(go list ./...)
       - run:
-          name: Build Docker image
-          command: docker build --tag "${IMAGE_TAG1}" .
-          
-      - run:
-          name: test-app
-          command: docker run -it "${IMAGE_TAG1}" go test -v -short --count=1 $(go list ./...)
-
-
+          command: chmod +x build_push_image_karsajobs.sh && ./build_push_image_karsajobs.sh
 workflows:
-  version: 2
-  test:
+  lint-and-build-dockerfile:
     jobs:
-      - lint-dockerfile
+      - build
