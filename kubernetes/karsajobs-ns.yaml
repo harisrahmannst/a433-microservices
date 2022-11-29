@@ -1,3 +1,4 @@
+# Membuat Namespace karsajobs-ns
 apiVersion: v1
 kind: Namespace
 metadata:

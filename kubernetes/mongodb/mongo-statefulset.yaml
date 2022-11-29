@@ -1,3 +1,4 @@
+# Membuat StatefulSet untuk mongodb
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -7,6 +8,7 @@ metadata:
     app: mongo
 
 spec:
+  # hanya membuat 1 replikasi saja dan mendefinisikan spesifikasi container
   replicas: 1
   selector:
     matchLabels:
@@ -21,26 +23,33 @@ spec:
 
     spec:
       containers:
+        # membuat container dengan nama mongo dan menggunakan image mongo:latest
         - name: mongo
           image: mongo
           ports:
             - containerPort: 27017
 
           env:
+            # menentukan Username yang akan digunakan mengambil dari mongo-secret
             - name: MONGO_INITDB_ROOT_USERNAME_FILE
               value: /etc/mongo-credentials/MONGO_ROOT_USERNAME
+            # menentukan Password yang akan digunakan mengambil dari mongo-secret
             - name: MONGO_INITDB_ROOT_PASSWORD_FILE
               value: /etc/mongo-credentials/MONGO_ROOT_PASSWORD
 
           volumeMounts:
+            # Melakukan Mounting tempat penyimpanan data
             - mountPath: /data/db
               name: mongo-persistent-storage
+            # Melakukan Mounting dir config
             - mountPath: /config
               name: mongo-configmap
+            # Melakukan Mounting credential
             - mountPath: /etc/mongo-credentials
               name: mongo-credentials
 
       volumes:
+        # membuat Volume dan mendefinisikan data pvc, config, dan credentials
         - name: mongo-persistent-storage
           persistentVolumeClaim:
             claimName: mongo-pvc

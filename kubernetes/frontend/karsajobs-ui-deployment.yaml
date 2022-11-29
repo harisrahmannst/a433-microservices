@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   # mementukan namespace menggunakan ns karsajobs
   namespace: karsajobs-ns
-  # memamai aplikasi
+  # memamai Deployment
   name: karsajobs-ui
   # membuat label
   labels:
@@ -24,10 +24,14 @@ spec:
         app: karsajobs-ui
 
     spec:
+      # Medefinisikan kriteria container yang akan dijalankan
       containers:
         - name: karsajobs-frontend
+          # Menggunakan image dari Github
           image: ghcr.io/harisrahmannst/karsajobs-ui:latest
           ports:
             - containerPort: 8000
+          # Mendefinisikan env
           env:
             - name: VUE_APP_BACKEND
+              value: http://10.107.27.120:30837

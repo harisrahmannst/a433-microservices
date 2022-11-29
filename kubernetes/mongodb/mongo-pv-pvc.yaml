@@ -1,10 +1,14 @@
+# Membuat PersistenVolume yang akan digunakan mongo
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   namespace: karsajobs-ns
   name: mongo-data-pv
 
+# Menentukan kapasitas sebesar 1Gi dengan akses mode Read-write once, nama Storage Class dengan manual
+# dan host path pada /data/db
 spec:
+  storageClassName: "manual"
   capacity:
     storage: 1Gi
   hostPath:
@@ -13,6 +17,7 @@ spec:
     - ReadWriteOnce
 
 ---
+# Melakukan Claim Persistent Volume
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -20,7 +25,8 @@ metadata:
   name: mongo-pvc
 
 spec:
-  storageClassName: ""
+  # mendenisikan kriteria pvc yang akan diclaim
+  storageClassName: "manual"
   accessModes:
     - ReadWriteOnce
   resources:

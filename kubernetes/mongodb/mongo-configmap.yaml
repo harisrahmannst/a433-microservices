@@ -1,3 +1,4 @@
+# membuat ConfigMap untuk menyimpan data configurasi mongo
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -5,6 +6,7 @@ metadata:
   name: mongo-configmap
 
 data:
+  # File config akan dimount ke /data/db
   mongo.conf: |
     storage:
       dbPath: /data/db
